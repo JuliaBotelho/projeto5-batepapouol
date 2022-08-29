@@ -19,10 +19,10 @@ function stillConected (){
     promessa2.then(console.log('still here'))
 }
 
-setTimeout(setInterval(stillConected,5000),3000)
+setTimeout(setInterval(stillConected,5000),1000)
 
 function getData(){
-    console.log('nome de usuário enviada')
+    console.log('nome de usuário enviado')
 }
 
 function theError(erro){
@@ -80,15 +80,18 @@ renderMessages()
 function addMessage(){
 
     const texto = document.querySelector('.writen')
-
-    const newMessage = {
-        from: user,
-        to: "Todos",
-        text: texto.value,
-        type:"message"
-    }
-    const promessa5 = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages',newMessage)
-    promessa5.then(eraseInput)
+    /* if (texto !== ''){ */
+        const newMessage = {
+            from: user,
+            to: "Todos",
+            text: texto.value,
+            type:"message"
+        }
+        const promessa5 = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages',newMessage)
+        promessa5.then(eraseInput)
+   /*  }else{
+        alert("A mensagem encontra-se em branco")
+    } */
  
 } 
 
